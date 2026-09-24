@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "judul": "Dokumentasi 1",
+    "foto": "image/fotbar1.jpeg"
+  },
+  {
+    "id": 2,
+    "judul": "Dokumentasi 2",
+    "foto": "image/fotbar2.jpeg"
+  },
+  {
+    "id": 3,
+    "judul": "Dokumentasi 3",
+    "foto": "image/fotbar3.jpeg"
+  }
+]

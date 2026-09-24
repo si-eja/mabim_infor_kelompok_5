@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "nama": "Bagus Tegar Gunawan",
+    "nim": "267006111082",
+    "peran": "Ketua Kelompok",
+    "foto": "image/(4)Bagus.jpeg",
+    "quote": "Kerja keras dan kerja cerdas adalah kunci keberhasilan."
+  },
+  {
+    "id": 2,
+    "nama": "Keyla Putri Yasinta",
+    "nim": "267006111146",
+    "foto": "image/(1)Keyla.jpeg",
+    "quote": "Selalu belajar hal baru setiap hari dan berikan impact positif bagi sekitar."
+  },
+  {
+    "id": 3,
+    "nama": "Talitha Naila Nursalma",
+    "nim": "267006111144",
+    "foto": "image/(2)Talitha.jpeg",
+    "quote": "Tetap konsisten dan pantang menyerah meraih cita-cita."
+  },
+  {
+    "id": 4,
+    "nama": "Ulfah Nurul Arba",
+    "nim": "267006111217",
+    "foto": "image/(3)Ulfah.jpeg",
+    "quote": "Nikmati prosesnya, hasil tidak akan mengkhianati usaha."
+  },
+  {
+    "id": 5,
+    "nama": "Naufal Ramadhan Hardianto",
+    "nim": "267006111138",
+    "foto": "image/(5)Naufal.jpeg",
+    "quote": "Jadilah versi terbaik dari dirimu sendiri setiap hari."
+  },
+  {
+    "id": 6,
+    "nama": "Rafi Maulana Sidiq",
+    "nim": "267006111211",
+    "foto": "image/(6)Rafi.jpeg",
+    "quote": "Disiplin dan dedikasi membawa kita menuju keunggulan."
+  },
+  {
+    "id": 7,
+    "nama": "Rafie Rasyad Musthafa",
+    "nim": "267006111147",
+    "foto": "image/(7)Rafie.jpeg",
+    "quote": "Terus bertumbuh dan memberi manfaat bagi sesama."
+  },
+  {
+    "id": 8,
+    "nama": "Riki Arya Nugraha",
+    "nim": "267006111214",
+    "foto": "image/(8)Riki.jpeg",
+    "quote": "Keberanian memulai adalah setengah dari kesuksesan."
+  },
+  {
+    "id": 9,
+    "nama": "Romi Ahmad Febrian",
+    "nim": "267006111212",
+    "foto": "image/(9)Romi.jpeg",
+    "quote": "Berpikir positif dan terus melangkah ke depan."
+  },
+  {
+    "id": 10,
+    "nama": "Fachri Putra Ramadhan",
+    "nim": "267006111050",
+    "foto": "image/(10)Fachri.jpeg",
+    "quote": "Fokus pada solusi, bukan pada masalahnya."
+  },
+  {
+    "id": 11,
+    "nama": "Mochammad Fauzan Rizaldy",
+    "nim": "267006111173",
+    "foto": "image/(11)Fauzan.jpeg",
+    "quote": "Kebersamaan adalah kekuatan utama dalam menyelesaikan tantangan MABIM."
+  }
+]
