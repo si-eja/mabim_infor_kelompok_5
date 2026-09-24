@@ -5,30 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MABIM - Masa Bimbingan</title>
 
-    <!-- Asset CSS Lokal -->
+    <!-- LIBRARY 1: Bootstrap CSS - Framework UI untuk grid responsif, komponen modal, navbar, & utility class -->
     <link rel="stylesheet" href="style/bootstrap/css/bootstrap.min.css">
+
+    <!-- LIBRARY 2: FontAwesome CSS - Library ikon vektor (seperti ikon pencarian, bintang, kamera, dll.) -->
     <link rel="stylesheet" href="style/fontawesome/css/all.min.css">
+
+    <!-- LIBRARY 3: AOS (Animate On Scroll) CSS - Library untuk memberikan efek animasi saat elemen di-scroll -->
     <link rel="stylesheet" href="style/aos-master/dist/aos.css">
 
-    <!-- Custom CSS Style -->
+    <!-- KUSTOMISASI STYLESHEET (CSS INTERNAL) -->
     <style>
+        /* Mengatur warna dasar halaman web dan font standar sistem */
         body {
             background-color: #f8fafc;
             color: #334155;
             font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
 
+        /* Class warna khusus untuk latar belakang slate gelap (Navbar & Footer) */
         .bg-slate-dark {
             background-color: #1e293b !important;
         }
 
+        /* Class warna khusus untuk elemen teks biru langit (Aksen/Highlight) */
         .text-sky-blue {
             color: #0ea5e9 !important;
         }
 
+        /* Styling dasar kartu anggota & Kakak Asuh dengan efek transisi saat di-hover */
         .card-custom {
             border: none;
             border-radius: 12px;
+            /* Efek transisi halus selama 0.3 detik */
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             background-color: #ffffff;
             text-decoration: none;
@@ -37,16 +46,19 @@
             cursor: pointer;
         }
 
+        /* Efek Hover: Kartu terangkat 6px ke atas & memunculkan bayangan lembut (Drop Shadow) */
         .card-custom:hover {
             transform: translateY(-6px);
             box-shadow: 0 12px 24px -4px rgba(15, 23, 42, 0.12), 0 4px 8px -4px rgba(15, 23, 42, 0.06);
             color: inherit;
         }
 
+        /* Mengubah warna teks judul di dalam kartu saat kartu di-hover */
         .card-custom:hover .card-title {
             color: #0ea5e9 !important;
         }
 
+        /* Styling gradasi khusus kartu Kakak Asuh (Biru Muda ke Biru Tua) */
         .bg-kakak {
             background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
             color: #ffffff;
@@ -56,12 +68,14 @@
             color: #ffffff !important;
         }
 
+        /* Judul Seksi dengan Garis Bawah Aksen (Underline) */
         .section-title {
             position: relative;
             padding-bottom: 0.5rem;
             margin-bottom: 2rem;
         }
 
+        /* Elemen semu (Pseudo-element) untuk membuat garis aksen biru di tengah bawah judul */
         .section-title::after {
             content: '';
             position: absolute;
@@ -74,32 +88,35 @@
             border-radius: 2px;
         }
 
-        /* Styling Carousel Overlay & Height */
+        /* Mengatur tinggi konsisten slider/carousel dan background gelap */
         .carousel-item {
             height: 420px;
             background-color: #0f172a;
         }
 
+        /* Mengatur gambar slider agar terpotong rapi (object-fit) tanpa merusak rasio gambar */
         .carousel-item img {
             height: 100%;
             object-fit: cover;
             opacity: 0.65;
         }
 
+        /* Keterangan foto pada slider dengan efek kaca transparan (Glassmorphism) */
         .carousel-caption {
             background: rgba(15, 23, 42, 0.65);
-            backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px); /* Efek Blur Latar Belakang */
             border-radius: 12px;
             padding: 1.5rem;
             bottom: 2rem;
         }
 
-        /* Gallery Hover Zoom Effect */
+        /* Container pembungkus foto galeri agar efek pembesaran gambar tidak meluber keluar */
         .gallery-img-wrapper {
             overflow: hidden;
             border-radius: 12px;
         }
 
+        /* Foto dokumentasi dengan ukuran seragam */
         .gallery-img {
             transition: transform 0.4s ease;
             width: 100%;
@@ -107,6 +124,7 @@
             object-fit: cover;
         }
 
+        /* Efek Zoom In gambar dokumentasi saat di-hover (Perbesar 8%) */
         .gallery-img-wrapper:hover .gallery-img {
             transform: scale(1.08);
         }
@@ -114,16 +132,22 @@
 </head>
 <body>
 
-    <!-- 1. NAVBAR RESPONSIF -->
+    <!-- 1. NAVBAR RESPONSIF (Header Navigasi Web) -->
+    <!-- `sticky-top`: Membuat navbar tetap menempel di atas saat layar di-scroll -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-slate-dark sticky-top shadow-sm py-3">
         <div class="container">
+            <!-- Logo & Nama Situs -->
             <a class="navbar-brand fw-bold text-white fs-4 d-flex align-items-center gap-2" href="index.html">
                 <i class="fa-solid fa-users text-sky-blue"></i>
                 <span>MABIM <span class="text-sky-blue">2026</span></span>
             </a>
+            
+            <!-- Tombol Hamburger (Hanya muncul di tampilan Mobile/HP) -->
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
+            <!-- Menu Navigasi & Form Pencarian -->
             <div class="collapse navbar-collapse mt-3 mt-lg-0" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -136,11 +160,14 @@
                         <a class="nav-link fw-semibold" href="#section-dokumentasi">Dokumentasi</a>
                     </li>
                 </ul>
+
+                <!-- Form Live Search: `onsubmit="return false;"` Mencegah reload halaman saat menekan 'Enter' -->
                 <form class="d-flex" role="search" onsubmit="return false;">
                     <div class="input-group">
                         <span class="input-group-text bg-white border-end-0 text-muted">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </span>
+                        <!-- Input pencarian interaktif -->
                         <input type="search" id="searchBar" class="form-control border-start-0 ps-0" placeholder="Cari nama..." aria-label="Search">
                     </div>
                 </form>
@@ -148,19 +175,24 @@
         </div>
     </nav>
 
-    <!-- MAIN CONTENT -->
+    <!-- KONTEN UTAMA HALAMAN (MAIN CONTENT) -->
     <main class="container py-5">
-        <!-- BOOTSTRAP CAROUSEL -->
+
+        <!-- SEKSI 1: CAROUSEL / SLIDER FOTO KEGIATAN -->
+        <!-- `data-aos="fade-up"`: Efek AOS (Elemen muncul memudar dari bawah ke atas) -->
         <section class="mb-5" data-aos="fade-up">
             <div id="mabimCarousel" class="carousel slide shadow-sm rounded-4 overflow-hidden" data-bs-ride="carousel">
+                <!-- Indikator Navigasi Titik Carousel -->
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#mabimCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#mabimCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                     <button type="button" data-bs-target="#mabimCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
+
+                <!-- Daftar Slide Gambar -->
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="https://picsum.photos/1200/500?random=1" class="d-block w-100" alt="Kegiatan Mabim 1">
+                        <img src="image/fotbar4.jpeg" class="d-block w-100" alt="Kegiatan Mabim 1">
                         <div class="carousel-caption d-none d-md-block">
                             <h5 class="fw-bold text-white fs-4">Mentoring</h5>
                             <p class="mb-0 text-white-50">Sesi perkenalan dan bimbingan bersama Kakak Asuh pendamping kelompok.</p>
@@ -181,6 +213,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Tombol Navigasi Panah Kiri & Kanan Slider -->
                 <button class="carousel-control-prev" type="button" data-bs-target="#mabimCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
@@ -192,7 +226,7 @@
             </div>
         </section>
 
-        <!-- SECTION PORTAL -->
+        <!-- SEKSI 2: HEADER JUDUL KELOMPOK (Hero Section Mini) -->
         <section class="py-5 text-center bg-white border-bottom">
             <div class="container py-3" data-aos="fade-down">
                 <h1 class="fw-bold text-slate-dark display-5 mb-2">Kelompok 5 MABIM Informatika</h1>
@@ -204,7 +238,7 @@
 
         <hr class="my-5 text-muted opacity-25">
 
-        <!-- SECTION KAKAK ASUH (2 PERSON) -->
+        <!-- SEKSI 3: KAKAK ASUH -->
         <section class="mb-5">
             <div class="text-center" data-aos="fade-up">
                 <h2 class="fw-bold text-slate-dark section-title d-inline-block">
@@ -212,13 +246,13 @@
                 </h2>
             </div>
 
-            <!-- Container tempat render kartu Kakak Asuh -->
+            <!-- CONTAINER TARGET: Kartu Kakak Asuh dirender secara dinamis oleh JS di sintaks ini -->
             <div class="row g-4 justify-content-center" id="kakakAsuhContainer"></div>
         </section>
 
         <hr class="my-5 text-muted opacity-25">
 
-        <!-- SECTION ANGGOTA (11 PERSON) -->
+        <!-- SEKSI 4: ANGGOTA KELOMPOK -->
         <section id="anggota" class="pt-3">
             <div class="text-center" data-aos="fade-up">
                 <h2 class="fw-bold text-slate-dark section-title d-inline-block">
@@ -226,6 +260,7 @@
                 </h2>
             </div>
 
+            <!-- CONTAINER TARGET: Kartu Anggota dirender secara dinamis oleh JS di sintaks ini -->
             <div class="row g-4">
                 <div class="row g-3" id="anggotaContainer"></div>
             </div>
@@ -233,7 +268,7 @@
 
         <hr class="my-5 text-muted opacity-25">
 
-        <!-- SECTION DOKUMENTASI -->
+        <!-- SEKSI 5: DOKUMENTASI KEGIATAN -->
         <section id="section-dokumentasi" class="pt-3">
             <div class="text-center" data-aos="fade-up">
                 <h2 class="fw-bold text-slate-dark section-title d-inline-block mb-4">
@@ -241,15 +276,15 @@
                 </h2>
             </div>
 
-            <!-- Container tempat foto dokumentasi dirender otomatis -->
+            <!-- CONTAINER TARGET: Foto-foto dokumentasi dirender dari JSON oleh JS di sini -->
             <div class="row g-4" id="dokumentasiContainer"></div>
         </section>
 
     </main>
 
-    <!-- 13 MODAL COMPONENTS (2 KAKAK ASUH & 11 ANGGOTA) -->
+    <!-- KOMPONEN MODAL POPUP (Dialog Pop-up Informasi Detail) -->
 
-    <!-- Single Modal Kakak Asuh -->
+    <!-- Modal 1: Detail Kakak Asuh -->
     <div class="modal fade" id="modalKakakAsuh" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
@@ -257,6 +292,7 @@
                     <h5 class="modal-title fw-bold">Profil Kakak Asuh</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <!-- Isi Modal Dinamis (Diisi oleh JS) -->
                 <div class="modal-body text-center p-4">
                     <img id="modalKakakFoto" src="" class="rounded-circle img-thumbnail mb-3 border-3 border-sky-blue" style="width: 140px; height: 140px; object-fit: cover;" alt="Foto Kakak Asuh">
                     <h4 id="modalKakakNama" class="fw-bold text-slate-dark mb-1"></h4>
@@ -270,7 +306,7 @@
         </div>
     </div>
 
-    <!-- Single Modal Tunggal (Tanpa Link Sosial Media) -->
+    <!-- Modal 2: Detail Anggota Kelompok -->
     <div class="modal fade" id="modalAnggota" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
@@ -278,11 +314,12 @@
                     <h5 class="modal-title fw-bold">Profil Anggota</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <!-- Isi Modal Dinamis (Diisi oleh JS) -->
                 <div class="modal-body text-center p-4">
                     <img id="modalFoto" src="" class="rounded-circle img-thumbnail mb-3" style="width: 140px; height: 140px; object-fit: cover;" alt="Foto Profil">
                     <h4 id="modalNama" class="fw-bold text-slate-dark mb-1"></h4>
                     
-                    <!-- Container NIM & Badge Ketua -->
+                    <!-- Tempat NIM dan Badge Peran/Ketua -->
                     <div id="modalNimContainer" class="d-flex justify-content-center align-items-center mb-3"></div>
                     
                     <p id="modalQuote" class="fst-italic text-muted px-3 mb-0"></p>
@@ -290,42 +327,49 @@
             </div>
         </div>
     </div>
-    <!-- FOOTER -->
+
+    <!-- FOOTER HALAMAN -->
     <footer class="bg-slate-dark text-white text-center py-4 mt-5 border-top border-secondary">
         <div class="container">
             <p class="mb-0 text-white-50 small">&copy; 2026 MABIM. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- Asset JS Lokal -->
+    <!-- SCRIPT JAVASCRIPT & LIBRARY -->
+    <!-- Library Bootstrap Bundle (Termasuk PopperJS untuk Modal & Carousel) -->
     <script src="style/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Library AOS JS (Inisialisasi Animasi Scroll) -->
     <script src="style/aos-master/dist/aos.js"></script>
-    <script src="interactive.js"></script>
 
-    <!-- Inisialisasi AOS & Live Search JS -->
+    <!-- MANAJEMEN LOGIKA JAVASCRIPT (DOM, FETCH API, LIVE SEARCH) -->
     <script>
+        // 1. Inisialisasi awal animasi AOS saat web pertama kali dibuka
         AOS.init({
-            duration: 800,
-            once: true
+            duration: 800, // Durasi animasi (0.8 detik)
+            once: true    // Animasi hanya berjalan 1 kali saat di-scroll
         });
 
+        // -------------------------------------------------------------
+        // BLOK 1: FETCH DATA DOKUMENTASI (data-dokumentasi.json)
+        // -------------------------------------------------------------
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. Fetch Data Dokumentasi dengan Validasi
+            // Pengambilan data secara asinkronus menggunakan Fetch API
             fetch('data-dokumentasi.json')
                 .then(response => {
-                    // Pengecekan status HTTP (Error 404 jika file JSON tidak ada)
+                    // Validasi HTTP Status: Jika file tidak ditemukan (404/500), lempar error
                     if (!response.ok) {
                         throw new Error(`Gagal memuat file JSON (Status: ${response.status})`);
                     }
-                    return response.json();
+                    return response.json(); // Mengonversi file respon menjadi array JSON
                 })
                 .then(data => {
-                    renderDokumentasi(data);
+                    renderDokumentasi(data); // Eksekusi fungsi pembentukan HTML
                 })
                 .catch(err => {
                     console.error('Error saat memuat data dokumentasi:', err);
 
-                    // Tampilkan pesan error di container dokumentasi
+                    // Penanganan Error (Error Handling UI): Menampilkan alert di layar jika file gagal dimuat
                     const container = document.getElementById('dokumentasiContainer');
                     if (container) {
                         container.innerHTML = `
@@ -339,20 +383,22 @@
                     }
                 });
 
-            // 2. Fungsi Render Galeri Dokumentasi
+            // Fungsi untuk membuat elemen HTML foto dokumentasi
             function renderDokumentasi(data) {
                 const container = document.getElementById('dokumentasiContainer');
                 if (!container) return;
 
                 container.innerHTML = '';
 
+                // Validasi data kosong
                 if (!data || data.length === 0) {
                     container.innerHTML = `<div class="col-12 text-center text-muted py-4">Belum ada dokumentasi.</div>`;
                     return;
                 }
 
+                // Iterasi/Looping setiap data foto dari JSON
                 data.forEach((item, index) => {
-                    const delay = (index + 1) * 100;
+                    const delay = (index + 1) * 100; // Efek delay bertahap untuk animasi AOS
                     const html = `
                         <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="${delay}">
                             <div class="gallery-img-wrapper shadow-sm">
@@ -360,20 +406,21 @@
                             </div>
                         </div>
                     `;
-                    container.insertAdjacentHTML('beforeend', html);
+                    container.insertAdjacentHTML('beforeend', html); // Menyisipkan HTML ke DOM
                 });
 
-                if (typeof AOS !== 'undefined') AOS.refresh();
+                if (typeof AOS !== 'undefined') AOS.refresh(); // Hitung ulang posisi animasi AOS
             }
         });
 
+        // -------------------------------------------------------------
+        // BLOK 2: FETCH DATA ANGGOTA & INTERAKSI MODAL ANGGOTA
+        // -------------------------------------------------------------
         document.addEventListener('DOMContentLoaded', () => {
-            let listAnggota = [];
+            let listAnggota = []; // Penampung lokal data anggota untuk fitur pencarian
 
-            // 1. Fetch Data Anggota dengan Validasi
             fetch('data-anggota.json')
                 .then(response => {
-                    // Cek apakah response HTTP sukses (status code 200-299)
                     if (!response.ok) {
                         throw new Error(`Gagal memuat file JSON (Status: ${response.status})`);
                     }
@@ -385,8 +432,6 @@
                 })
                 .catch(err => {
                     console.error('Error saat mengambil data anggota:', err);
-                    
-                    // Tampilkan pesan error di container jika file JSON tidak ditemukan atau bermasalah
                     const container = document.getElementById('anggotaContainer');
                     if (container) {
                         container.innerHTML = `
@@ -400,7 +445,7 @@
                     }
                 });
 
-            // 2. Fungsi Render Kartu Anggota
+            // Fungsi membuat kartu anggota
             function renderAnggota(data) {
                 const container = document.getElementById('anggotaContainer');
                 if (!container) return;
@@ -415,7 +460,7 @@
                 data.forEach((item, index) => {
                     const delay = (index + 1) * 50;
                     
-                    // Cek apakah anggota adalah Ketua
+                    // Kondisional Badge: Menampilkan badge "Ketua" jika properti 'peran' bernilai ada
                     const badgeKetua = item.peran 
                         ? `<span class="badge bg-primary text-white ms-1">${item.peran}</span>` 
                         : '';
@@ -423,8 +468,8 @@
                     const cardHTML = `
                         <div class="col-6 col-md-4 col-lg-3 card-item" data-aos="fade-up" data-aos-delay="${delay}">
                             <div class="card card-custom h-100 p-3 text-center shadow-sm border btn-modal-trigger" 
-                                style="cursor: pointer;"
-                                data-id="${item.id}">
+                                style="cursor: pointer;" 
+                                data-id="${item.id}"> <!-- Custom Attribute data-id untuk penanda ID anggota -->
                                 <div class="card-body p-2">
                                     <img src="${item.foto}" class="rounded-circle img-thumbnail mb-3 mx-auto d-block" style="width: 100px; height: 100px; object-fit: cover;" alt="${item.nama}">
                                     <h5 class="card-title fw-bold text-slate-dark mb-1 fs-6">${item.nama}</h5>
@@ -442,27 +487,16 @@
                 if (typeof AOS !== 'undefined') AOS.refresh();
             }
 
-            // 3. Live Search
-            const searchInput = document.getElementById('searchBar');
-            if (searchInput) {
-                searchInput.addEventListener('input', function () {
-                    const keyword = this.value.toLowerCase().trim();
-                    const filteredData = listAnggota.filter(item => 
-                        (item.nama && item.nama.toLowerCase().includes(keyword)) || 
-                        (item.nim && item.nim.toLowerCase().includes(keyword))
-                    );
-                    renderAnggota(filteredData);
-                });
-            }
-
-            // 4. Modal Populator
+            // Event Delegation: Menangkap event klik pada kartu anggota untuk memunculkan Modal
             const containerAnggota = document.getElementById('anggotaContainer');
             if (containerAnggota) {
                 containerAnggota.addEventListener('click', function (e) {
+                    // Cari elemen kartu terdekat yang diklik
                     const cardBtn = e.target.closest('.btn-modal-trigger');
                     if (!cardBtn) return;
 
                     const id = parseInt(cardBtn.dataset.id);
+                    // Cari data anggota spesifik berdasarkan ID
                     const anggota = listAnggota.find(item => item.id === id);
 
                     if (anggota) {
@@ -470,6 +504,7 @@
                             ? `<span class="badge bg-primary text-white ms-2 px-3 py-2 rounded-pill">${anggota.peran}</span>` 
                             : '';
 
+                        // Isi elemen modal dengan data dari array
                         document.getElementById('modalFoto').src = anggota.foto;
                         document.getElementById('modalNama').textContent = anggota.nama;
                         document.getElementById('modalNimContainer').innerHTML = `
@@ -478,6 +513,7 @@
                         `;
                         document.getElementById('modalQuote').textContent = `"${anggota.quote}"`;
 
+                        // Panggil instance Bootstrap Modal untuk menampilkan pop-up
                         const modalElement = document.getElementById('modalAnggota');
                         const bsModal = new bootstrap.Modal(modalElement);
                         bsModal.show();
@@ -486,10 +522,12 @@
             }
         });
 
+        // -------------------------------------------------------------
+        // BLOK 3: FETCH DATA KAKAK ASUH & INTERAKSI MODAL KAKAK ASUH
+        // -------------------------------------------------------------
         document.addEventListener('DOMContentLoaded', () => {
             let listKakakAsuh = [];
 
-            // Path ke file JSON
             fetch('data-kakak-asuh.json')
                 .then(response => {
                     if (!response.ok) {
@@ -498,7 +536,6 @@
                     return response.json();
                 })
                 .then(data => {
-                    console.log("Data Kakak Asuh berhasil dimuat:", data);
                     listKakakAsuh = data;
                     renderKakakAsuh(listKakakAsuh);
                 })
@@ -543,7 +580,7 @@
                 if (typeof AOS !== 'undefined') AOS.refresh();
             }
 
-            // Modal click handler
+            // Event Delegation untuk modal Kakak Asuh
             const containerKakak = document.getElementById('kakakAsuhContainer');
             if (containerKakak) {
                 containerKakak.addEventListener('click', function (e) {
@@ -568,57 +605,59 @@
             }
         });
 
-        // Fitur Live Search dengan Validasi Lengkap
+        // -------------------------------------------------------------
+        // BLOK 4: FITUR LIVE SEARCH DENGAN VALIDASI & DEBOUNCE
+        // -------------------------------------------------------------
         const searchInput = document.getElementById('searchBar');
 
         if (searchInput) {
-            // Variabel penampung timer debounce
-            let searchDebounceTimer;
+            let searchDebounceTimer; // Timer untuk teknik 'Debouncing'
 
+            // Menangkap event mengetik 'input'
             searchInput.addEventListener('input', function () {
-                clearTimeout(searchDebounceTimer);
+                clearTimeout(searchDebounceTimer); // Batalkan timer sebelumnya jika pengguna masih mengetik
 
-                // Debounce 200ms agar pencarian lebih halus & responsif
+                // Debounce 200ms: Penundaan eksekusi fungsi pencarian agar tidak memberatkan browser saat mengetik cepat
                 searchDebounceTimer = setTimeout(() => {
-                    // 1. Sanitasi Input (Hapus spasi berlebih & karakter khusus berbahaya)
+                    
+                    // 1. Sanitasi Input
                     let rawValue = this.value;
                     let filterValue = rawValue.toLowerCase().trim();
 
-                    // Mencegah pencarian jika mengandung script/tag berbahaya
+                    // Keamanan: Hapus karakter khusus HTML berbahaya untuk mencegah XSS
                     filterValue = filterValue.replace(/[<>{}]/g, '');
 
                     const cardItems = document.querySelectorAll('.card-item');
-                    const container = document.getElementById('anggotaContainer'); // Sesuaikan dengan container kamu
+                    const container = document.getElementById('anggotaContainer');
                     
-                    let hasVisibleCard = false;
+                    let hasVisibleCard = false; // Flag penanda jika ada kartu yang cocok
 
-                    // 2. Filter Setiap Kartu
+                    // 2. Filter Tampilan Kartu di Layar
                     cardItems.forEach(item => {
-                        // Ambil seluruh teks di dalam kartu (nama, NIM, peran)
                         const cardText = item.textContent.toLowerCase();
 
+                        // Jika keyword cocok atau input kosong, tampilkan kartu
                         if (filterValue === '' || cardText.includes(filterValue)) {
-                            // Tampilkan kartu
                             item.classList.remove('d-none');
                             item.style.display = '';
 
-                            // Hapus style bawaan AOS yang menahan opacity saat di-hide
+                            // Reset style CSS AOS agar opacity kembali normal saat kartu ditampilkan
                             item.style.opacity = '1';
                             item.style.transform = 'none';
 
                             hasVisibleCard = true;
                         } else {
-                            // Sembunyikan kartu
+                            // Sembunyikan kartu yang tidak cocok
                             item.classList.add('d-none');
                             item.style.display = 'none';
                         }
                     });
 
-                    // 3. Validasi Jika Hasil Pencarian Kosong / Tidak Ditemukan
+                    // 3. Validasi Hasil Kosong (No Search Result Feedback)
                     let noResultMsg = document.getElementById('noSearchResultMsg');
 
                     if (!hasVisibleCard && filterValue !== '') {
-                        // Jika pesan belum ada di DOM, buat pesan baru
+                        // Tampilkan info "Pencarian tidak ditemukan" jika semua kartu tersembunyi
                         if (!noResultMsg && container) {
                             noResultMsg = document.createElement('div');
                             noResultMsg.id = 'noSearchResultMsg';
@@ -632,13 +671,13 @@
                             container.appendChild(noResultMsg);
                         }
                     } else {
-                        // Jika ada hasil atau input kosong, hapus pesan "tidak ditemukan"
+                        // Hapus pesan info jika kartu ditemukan kembali atau input dibersihkan
                         if (noResultMsg) {
                             noResultMsg.remove();
                         }
                     }
 
-                    // 4. Re-calculate posisi AOS setelah layout berubah karena pencarian
+                    // 4. Hitung ulang tata letak AOS
                     if (typeof AOS !== 'undefined') {
                         AOS.refresh();
                     }
@@ -646,7 +685,7 @@
             });
         }
 
-        // Helper function untuk mencegah XSS saat menampilkan kata kunci di pesan "tidak ditemukan"
+        // Helper Function: Mengonversi karakter sensitif menjadi entitas HTML aman (Mencegah XSS Attack)
         function escapeHtml(text) {
             const map = {
                 '&': '&amp;',
