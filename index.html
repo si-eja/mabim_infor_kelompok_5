@@ -526,17 +526,6 @@
                         <a class="nav-link fw-semibold" href="#section-dokumentasi">Dokumentasi</a>
                     </li>
                 </ul>
-
-                <!-- Form Live Search: `onsubmit="return false;"` Mencegah reload halaman saat menekan 'Enter' -->
-                <form class="d-flex" role="search" onsubmit="return false;">
-                    <div class="input-group">
-                        <span class="input-group-text bg-white border-end-0 text-muted">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </span>
-                        <!-- Input pencarian interaktif -->
-                        <input type="search" id="searchBar" class="form-control border-start-0 ps-0" placeholder="Cari nama..." aria-label="Search">
-                    </div>
-                </form>
             </div>
         </div>
     </nav>
@@ -1033,86 +1022,6 @@
                 });
             }
         });
-
-        // -------------------------------------------------------------
-        // BLOK 4: FITUR LIVE SEARCH DENGAN VALIDASI & DEBOUNCE
-        // -------------------------------------------------------------
-        const searchInput = document.getElementById('searchBar');
-
-        if (searchInput) {
-            let searchDebounceTimer; // Timer untuk teknik 'Debouncing'
-
-            // Menangkap event mengetik 'input'
-            searchInput.addEventListener('input', function () {
-                clearTimeout(searchDebounceTimer); // Batalkan timer sebelumnya jika pengguna masih mengetik
-
-                // Debounce 200ms: Penundaan eksekusi fungsi pencarian agar tidak memberatkan browser saat mengetik cepat
-                searchDebounceTimer = setTimeout(() => {
-                    
-                    // 1. Sanitasi Input
-                    let rawValue = this.value;
-                    let filterValue = rawValue.toLowerCase().trim();
-
-                    // Keamanan: Hapus karakter khusus HTML berbahaya untuk mencegah XSS
-                    filterValue = filterValue.replace(/[<>{}]/g, '');
-
-                    const cardItems = document.querySelectorAll('.card-item');
-                    const container = document.getElementById('anggotaContainer');
-                    
-                    let hasVisibleCard = false; // Flag penanda jika ada kartu yang cocok
-
-                    // 2. Filter Tampilan Kartu di Layar
-                    cardItems.forEach(item => {
-                        const cardText = item.textContent.toLowerCase();
-
-                        // Jika keyword cocok atau input kosong, tampilkan kartu
-                        if (filterValue === '' || cardText.includes(filterValue)) {
-                            item.classList.remove('d-none');
-                            item.style.display = '';
-
-                            // Reset style CSS AOS agar opacity kembali normal saat kartu ditampilkan
-                            item.style.opacity = '1';
-                            item.style.transform = 'none';
-
-                            hasVisibleCard = true;
-                        } else {
-                            // Sembunyikan kartu yang tidak cocok
-                            item.classList.add('d-none');
-                            item.style.display = 'none';
-                        }
-                    });
-
-                    // 3. Validasi Hasil Kosong (No Search Result Feedback)
-                    let noResultMsg = document.getElementById('noSearchResultMsg');
-
-                    if (!hasVisibleCard && filterValue !== '') {
-                        // Tampilkan info "Pencarian tidak ditemukan" jika semua kartu tersembunyi
-                        if (!noResultMsg && container) {
-                            noResultMsg = document.createElement('div');
-                            noResultMsg.id = 'noSearchResultMsg';
-                            noResultMsg.className = 'col-12 text-center py-4 text-muted';
-                            noResultMsg.innerHTML = `
-                                <div class="py-3">
-                                    <i class="fa-solid fa-magnifying-glass text-secondary mb-2 fs-4"></i>
-                                    <p class="mb-0">Pencarian untuk "<strong>${escapeHtml(rawValue)}</strong>" tidak ditemukan.</p>
-                                </div>
-                            `;
-                            container.appendChild(noResultMsg);
-                        }
-                    } else {
-                        // Hapus pesan info jika kartu ditemukan kembali atau input dibersihkan
-                        if (noResultMsg) {
-                            noResultMsg.remove();
-                        }
-                    }
-
-                    // 4. Hitung ulang tata letak AOS
-                    if (typeof AOS !== 'undefined') {
-                        AOS.refresh();
-                    }
-                }, 200);
-            });
-        }
 
         // Helper Function: Mengonversi karakter sensitif menjadi entitas HTML aman (Mencegah XSS Attack)
         function escapeHtml(text) {
