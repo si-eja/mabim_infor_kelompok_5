@@ -499,53 +499,89 @@
 <body>
 
     <!-- 1. NAVBAR RESPONSIF (Header Navigasi Web) -->
-    <!-- `sticky-top`: Membuat navbar tetap menempel di atas saat layar di-scroll -->
+    <!-- 
+    STRUKTUR NAVIGASI UTAMA (NAVBAR)
+    Komponen navigasi Bootstrap yang dipasang di bagian paling atas halaman.
+    Menggunakan skema warna gelap (navbar-dark bg-slate-dark) serta fitur sticky-top 
+    agar navbar tetap menempel di layar saat pengguna menggulir halaman ke bawah.
+    -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-slate-dark sticky-top shadow-sm py-3">
         <div class="container">
-            <!-- Logo & Nama Situs -->
+            
+            <!-- 
+            LOGO & NAMA SITUS
+            - Merek navigasi yang mengarahkan kembali ke halaman utama (index.html).
+            - Dilengkapi ikon FontAwesome pengguna dengan sentuhan warna biru langit (text-sky-blue).
+            -->
             <a class="navbar-brand fw-bold text-white fs-4 d-flex align-items-center gap-2" href="index.html">
                 <i class="fa-solid fa-users text-sky-blue"></i>
                 <span>MABIM PPKMB IF 2026</span>
             </a>
             
-            <!-- Tombol Hamburger (Hanya muncul di tampilan Mobile/HP) -->
+            <!-- 
+            TOMBOL HAMBURGER (NAVBAR TOGGLER)
+            - Tombol menu responsif yang hanya muncul pada layar perangkat seluler (mobile/HP).
+            - 'border-0': Menghilangkan garis tepi tombol agar terlihat bersih.
+            - Terhubung dengan elemen ber-ID '#navbarNav' untuk membuka/menutup menu daftar tautan.
+            -->
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             
-            <!-- Menu Navigasi & Form Pencarian -->
+            <!-- 
+            DAFTAR MENU NAVIGASI
+            - Bungkus kolaps (collapse) yang merapikan menu dalam mode perangkat seluler maupun desktop.
+            - 'mt-3 mt-lg-0': Memberikan jarak margin atas pada tampilan ponsel agar tidak terlalu rapat dengan logo.
+            -->
             <div class="collapse navbar-collapse mt-3 mt-lg-0" id="navbarNav">
+                
+                <!-- Daftar tautan navigasi utama yang diatur rata kiri (me-auto) -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    
+                    <!-- Tautan Menu Beranda (Halaman Aktif) -->
                     <li class="nav-item">
                         <a class="nav-link active fw-semibold text-sky-blue" aria-current="page" href="index.html">Beranda</a>
                     </li>
+                    
+                    <!-- Tautan Menu Anggota (Mengarah ke bagian ID 'anggota' di halaman yang sama) -->
                     <li class="nav-item">
                         <a class="nav-link fw-semibold" href="#anggota">Anggota</a>
                     </li>
+                    
+                    <!-- Tautan Menu Dokumentasi (Mengarah ke bagian ID 'section-dokumentasi') -->
                     <li class="nav-item">
                         <a class="nav-link fw-semibold" href="#section-dokumentasi">Dokumentasi</a>
                     </li>
+                    
                 </ul>
             </div>
+            
         </div>
     </nav>
 
-    <!-- KONTEN UTAMA HALAMAN (MAIN CONTENT) -->
+    <!-- 
+    STRUKTUR UTAMA HALAMAN (MAIN CONTENT)
+    Konten utama dari website Mabim Informatika Kelompok 5 yang mencakup 
+    slider carousel kegiatan, bagian sambutan kelompok, kartu Kakak Asuh, 
+    daftar anggota kelompok, hingga dokumentasi foto.
+    -->
     <main class="container py-5">
-        
+            
         <!-- SEKSI 1: CAROUSEL / SLIDER FOTO KEGIATAN -->
-        <!-- `data-aos="fade-up"`: Efek AOS (Elemen muncul memudar dari bawah ke atas) -->
+        <!-- `data-aos="fade-up"`: Efek animasi AOS di mana elemen muncul memudar dari bawah ke atas saat digulir -->
         <section class="mb-5" data-aos="fade-up">
             <div id="mabimCarousel" class="carousel slide shadow-sm rounded-4 overflow-hidden" data-bs-ride="carousel">
-                <!-- Indikator Navigasi Titik Carousel -->
+                
+                <!-- Indikator Navigasi Titik di Bawah Carousel -->
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#mabimCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#mabimCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                     <button type="button" data-bs-target="#mabimCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
 
-                <!-- Daftar Slide Gambar -->
+                <!-- Daftar Item/Slide Gambar -->
                 <div class="carousel-inner">
+                    <!-- Slide Pertama (Aktif saat halaman dimuat) -->
                     <div class="carousel-item active">
                         <img src="image/fotbar4.jpeg" class="d-block w-100" alt="Kegiatan Mabim 1">
                         <div class="carousel-caption d-none d-md-block">
@@ -553,6 +589,8 @@
                             <p class="mb-0 text-white-50">Sesi perkenalan dan bimbingan bersama Kakak Asuh pendamping kelompok.</p>
                         </div>
                     </div>
+                    
+                    <!-- Slide Kedua -->
                     <div class="carousel-item">
                         <img src="image/fotbar1.jpeg" class="d-block w-100" alt="Kegiatan Mabim 2">
                         <div class="carousel-caption d-none d-md-block">
@@ -560,6 +598,8 @@
                             <p class="mb-0 text-white-50">Membangun kolaborasi dan menyelesaikan tantangan MABIM secara bersama.</p>
                         </div>
                     </div>
+                    
+                    <!-- Slide Ketiga -->
                     <div class="carousel-item">
                         <img src="image/fotbar2.jpeg" class="d-block w-100" alt="Kegiatan Mabim 3">
                         <div class="carousel-caption d-none d-md-block">
@@ -591,6 +631,7 @@
             </div>
         </section>
 
+        <!-- Garis Pemisah Tipis -->
         <hr class="my-5 text-muted opacity-25">
 
         <!-- SEKSI 3: KAKAK ASUH -->
@@ -601,10 +642,11 @@
                 </h2>
             </div>
 
-            <!-- CONTAINER TARGET: Kartu Kakak Asuh dirender secara dinamis oleh JS di sintaks ini -->
+            <!-- CONTAINER TARGET: Kartu Kakak Asuh dirender secara dinamis oleh JavaScript -->
             <div class="row g-4 justify-content-center" id="kakakAsuhContainer"></div>
         </section>
 
+        <!-- Garis Pemisah Tipis -->
         <hr class="my-5 text-muted opacity-25">
 
         <!-- SEKSI 4: ANGGOTA KELOMPOK -->
@@ -615,12 +657,13 @@
                 </h2>
             </div>
 
-            <!-- CONTAINER TARGET: Kartu Anggota dirender secara dinamis oleh JS di sintaks ini -->
+            <!-- CONTAINER TARGET: Kartu Anggota dirender secara dinamis oleh JavaScript -->
             <div class="row g-4">
                 <div class="row g-3" id="anggotaContainer"></div>
             </div>
         </section>
 
+        <!-- Garis Pemisah Tipis -->
         <hr class="my-5 text-muted opacity-25">
 
         <!-- SEKSI 5: DOKUMENTASI KEGIATAN -->
@@ -631,7 +674,7 @@
                 </h2>
             </div>
 
-            <!-- CONTAINER TARGET: Foto-foto dokumentasi dirender dari JSON oleh JS di sini -->
+            <!-- CONTAINER TARGET: Foto-foto dokumentasi dirender dari JSON oleh JavaScript -->
             <div class="row g-4" id="dokumentasiContainer"></div>
         </section>
 
@@ -639,68 +682,236 @@
 
     <!-- KOMPONEN MODAL POPUP (Dialog Pop-up Informasi Detail) -->
 
-    <!-- Modal 1: Detail Kakak Asuh -->
+    <!-- 
+    STRUKTUR MODAL(POP UP) 1: POP-UP DETAIL PROFIL KAKAK ASUH
+    Elemen ini berfungsi sebagai kerangka jendela pop-up (modal) berbasis Bootstrap 
+    yang dirancang khusus untuk menampilkan informasi lengkap mengenai Kakak Asuh 
+    ketika kartu profil mereka diklik oleh pengguna.
+    -->
     <div class="modal fade" id="modalKakakAsuh" tabindex="-1" aria-hidden="true">
+        
+        <!-- 
+        MODAL DIALOG: Mengatur tata letak kotak pop-up di layar.
+        - 'modal-dialog-centered': Berfungsi agar posisi pop-up selalu berada tepat di tengah layar secara vertikal.
+        -->
         <div class="modal-dialog modal-dialog-centered">
+            
+            <!-- 
+            MODAL CONTENT: Kotak pembungkus utama yang memberikan estetika modern:
+            - 'border-0': Menghilangkan garis tepi standar agar tampak lebih bersih.
+            - 'shadow-lg': Memberikan efek bayangan tebal di sekeliling modal agar terlihat melayang.
+            - 'rounded-4': Membuat sudut-sudut kotak menjadi melengkung halus.
+            - 'overflow-hidden': Memastikan elemen di dalamnya tidak keluar dari batas lengkungan sudut.
+            -->
             <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+                
+                <!-- 
+                MODAL HEADER: Bagian kepala modal yang berisi judul dan tombol keluar.
+                - 'bg-slate-dark text-white border-0': Memberikan latar belakang warna gelap yang elegan dengan teks putih.
+                -->
                 <div class="modal-header bg-slate-dark text-white border-0">
+                    <!-- Judul bagian atas modal dengan huruf tebal (fw-bold) -->
                     <h5 class="modal-title fw-bold">Profil Kakak Asuh</h5>
+                    
+                    <!-- Tombol silang (close) bawaan Bootstrap yang diwarnai putih dengan 'btn-close-white' -->
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <!-- Isi Modal Dinamis (Diisi oleh JS) -->
+                
+                <!-- 
+                ISI MODAL DINAMIS (MODAL BODY)
+                Bagian ini sengaja dikosongkan nilainya secara statis karena datanya 
+                akan disuntikkan secara otomatis oleh JavaScript berdasarkan data Kakak Asuh yang dipilih.
+                -->
                 <div class="modal-body text-center p-4">
+                    
+                    <!-- 
+                    ELEMEN FOTO KAKAK ASUH
+                    - 'id="modalKakakFoto"': Titik tangkap JavaScript untuk mengubah sumber gambar (src) secara dinamis.
+                    - 'rounded-circle img-thumbnail': Membentuk foto menjadi lingkaran dengan bingkai rapi.
+                    - 'border-3 border-sky-blue': Menambahkan ketebalan dan warna khusus pada bingkai foto.
+                    - Gaya inline 'width: 140px; height: 140px; object-fit: cover;' memastikan ukuran foto 
+                        selalu proporsional dan tidak gepeng meskipun ukuran gambar aslinya berbeda.
+                    -->
                     <img id="modalKakakFoto" src="" class="rounded-circle img-thumbnail mb-3 border-3 border-sky-blue" style="width: 140px; height: 140px; object-fit: cover;" alt="Foto Kakak Asuh">
+                    
+                    <!-- 
+                    ELEMEN NAMA KAKAK ASUH
+                    - 'id="modalKakakNama"': Tempat JavaScript menyisipkan teks nama lengkap Kakak Asuh.
+                    -->
                     <h4 id="modalKakakNama" class="fw-bold text-slate-dark mb-1"></h4>
+                    
+                    <!-- KONTAINER BADGE PERAN -->
                     <div class="mb-2">
+                        <!-- 
+                        ELEMEN PERAN / JABATAN KAKAK ASUH
+                        - 'id="modalKakakPeran"': Tempat JavaScript memasukkan teks jabatan atau peran (misal: Mentor).
+                        - 'badge bg-primary px-3 py-2 rounded-pill': Membentuk label bergaya pil (pill) dengan warna latar biru.
+                        -->
                         <span id="modalKakakPeran" class="badge bg-primary px-3 py-2 rounded-pill"></span>
                     </div>
+                    
+                    <!-- 
+                    ELEMEN DESKRIPSI SINGKAT
+                    - 'id="modalKakakDeskripsi"': Tempat JavaScript memasukkan teks penjelasan atau biografi singkat.
+                    - 'small text-secondary': Menjadikan ukuran teks lebih kecil dengan warna abu-abu sekunder.
+                    -->
                     <p id="modalKakakDeskripsi" class="small text-secondary mb-3"></p>
+                    
+                    <!-- 
+                    ELEMEN KUTIPAN / QUOTE
+                    - 'id="modalKakakQuote"': Tempat JavaScript memasukkan kata-kata motivasi atau kutipan dari Kakak Asuh.
+                    - 'fst-italic text-muted': Mengubah gaya teks menjadi miring dengan warna abu-abu lembut.
+                    -->
                     <p id="modalKakakQuote" class="fst-italic text-muted px-3 mb-0"></p>
+                    
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal 2: Detail Anggota Kelompok -->
+    <!-- 
+    STRUKTUR MODAL(POP UP) 2: POP-UP DETAIL PROFIL ANGGOTA KELOMPOK
+    Elemen ini berfungsi sebagai kerangka jendela pop-up (modal) yang akan 
+    memunculkan informasi lengkap tentang anggota kelompok saat kartu profil mereka diklik.
+    -->
     <div class="modal fade" id="modalAnggota" tabindex="-1" aria-hidden="true">
+        
+        <!-- 
+        MODAL DIALOG: Mengatur tata letak kotak pop-up.
+        - 'modal-dialog-centered': Berfungsi agar posisi modal selalu berada di tengah layar secara vertikal.
+        -->
         <div class="modal-dialog modal-dialog-centered">
+            
+            <!-- 
+            MODAL CONTENT: Kotak pembungkus utama yang memberikan efek visual modern 
+            seperti border transparan (border-0), bayangan tebal (shadow-lg), sudut membulat (rounded-4), 
+            dan 'overflow-hidden' agar isi di dalamnya tidak keluar dari batas lengkungan sudut.
+            -->
             <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+                
+                <!-- 
+                MODAL HEADER: Bagian atas modal yang berisi judul dan tombol tutup.
+                - 'bg-slate-dark text-white border-0': Memberikan warna latar belakang gelap khas dan teks putih.
+                -->
                 <div class="modal-header bg-slate-dark text-white border-0">
+                    <!-- Judul modal dengan huruf tebal (fw-bold) -->
                     <h5 class="modal-title fw-bold">Profil Anggota</h5>
+                    
+                    <!-- Tombol silang (close) bawaan Bootstrap dengan warna putih (btn-close-white) -->
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <!-- Isi Modal Dinamis (Diisi oleh JS) -->
+                
+                <!-- 
+                ISI MODAL DINAMIS (MODAL BODY)
+                Bagian ini sengaja dikosongkan nilainya secara statis karena datanya 
+                akan diisi secara otomatis (dinamis) oleh JavaScript berdasarkan anggota yang diklik.
+                -->
                 <div class="modal-body text-center p-4">
+                    
+                    <!-- 
+                    ELEMEN FOTO PROFIL
+                    - 'id="modalFoto"': Titik tangkap JavaScript untuk menyisipkan sumber gambar (src) foto anggota.
+                    - 'rounded-circle img-thumbnail': Membuat foto berbentuk lingkaran dengan bingkai tipis yang rapi.
+                    - Gaya inline 'width: 140px; height: 140px; object-fit: cover;' memastikan ukuran foto 
+                        persegi dan tidak gepeng meskipun ukuran file aslinya berbeda-beda.
+                    -->
                     <img id="modalFoto" src="" class="rounded-circle img-thumbnail mb-3" style="width: 140px; height: 140px; object-fit: cover;" alt="Foto Profil">
+                    
+                    <!-- 
+                    ELEMEN NAMA ANGGOTA
+                    - 'id="modalNama"': Tempat JavaScript menyuntikkan teks nama lengkap anggota yang dipilih.
+                    -->
                     <h4 id="modalNama" class="fw-bold text-slate-dark mb-1"></h4>
                     
-                    <!-- Tempat NIM dan Badge Peran/Ketua -->
+                    <!-- 
+                    WADAH NIM DAN BADGE PERAN (KETUA/ANGGOTA)
+                    - 'id="modalNimContainer"': Kontainer kosong tempat JavaScript merakit elemen 
+                        nomor induk mahasiswa (NIM) serta label status/peran khusus.
+                    -->
                     <div id="modalNimContainer" class="d-flex justify-content-center align-items-center mb-3"></div>
                     
+                    <!-- 
+                    ELEMEN KUTIPAN / QUOTE FAVORIT ANGGOTA
+                    - 'id="modalQuote"': Tempat JavaScript memasukkan teks kutipan atau moto hidup.
+                    - 'fst-italic text-muted': Membuat gaya teks menjadi miring dengan warna abu-abu lembut.
+                    -->
                     <p id="modalQuote" class="fst-italic text-muted px-3 mb-0"></p>
+                    
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- 
+    STRUKTUR UTAMA MODAL FOTO DOKUMENTASI (LIGHTBOX VIEWER)
+    Elemen ini menggunakan framework Bootstrap untuk membuat jendela pop-up 
+    yang interaktif saat pengguna mengklik salah satu foto dokumentasi.
+    -->
     <div class="modal fade photo-viewer" id="photoViewerModal" tabindex="-1" aria-labelledby="photoViewerTitle" aria-hidden="true">
+        
+        <!-- 
+        MODAL DIALOG: Mengatur tata letak kotak pop-up di layar.
+        - 'modal-dialog-centered': Berfungsi agar posisi pop-up selalu berada tepat di tengah layar secara vertikal dan horizontal.
+        - 'modal-xl': Menentukan ukuran modal menjadi ekstra besar (extra-large), sangat ideal agar foto terlihat luas dan jelas.
+        -->
         <div class="modal-dialog modal-dialog-centered modal-xl">
+            
+            <!-- MODAL CONTENT: Kotak pembungkus utama yang menampung seluruh komponen di dalam pop-up -->
             <div class="modal-content">
+                
+                <!-- 
+                BAGIAN KEPALA MODAL (MODAL HEADER)
+                Berisi judul kegiatan dan tombol silang (close) untuk keluar dari tampilan pop-up.
+                -->
                 <div class="modal-header px-3 px-md-4 py-3">
+                    <!-- Judul bagian atas modal dengan teks berukuran kecil-sedang (fs-6) dan semi-tebal (fw-semibold) -->
                     <h2 class="modal-title fs-6 fw-semibold" id="photoViewerTitle">Dokumentasi Kegiatan</h2>
+                    
+                    <!-- Tombol tutup (X) bawaan Bootstrap yang dikustomisasi dengan warna teks putih -->
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Tutup foto"></button>
                 </div>
+                
+                <!-- 
+                BAGIAN ISI MODAL (MODAL BODY)
+                Tempat di mana panggung foto utama, tombol navigasi geser, dan keterangan teks diletakkan.
+                -->
                 <div class="modal-body p-3 p-md-4">
+                    
+                    <!-- 
+                    PANGGUNG FOTO (PHOTO VIEWER STAGE)
+                    Wadah khusus yang meratakan posisi tombol navigasi kiri-kanan dan foto agar sejajar secara estetika.
+                    -->
                     <div class="photo-viewer-stage">
+                        
+                        <!-- Tombol Navigasi Geser ke Foto Sebelumnya (Previous) -->
                         <button type="button" class="photo-viewer-control" id="photoViewerPrevious" aria-label="Foto sebelumnya">
+                            <!-- Ikon panah kiri menggunakan library FontAwesome -->
                             <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
                         </button>
+                        
+                        <!-- 
+                        ELEMEN GAMBAR UTAMA
+                        Atribut 'id="photoViewerImage"' berfungsi sebagai titik tangkap JavaScript 
+                        untuk mengubah sumber gambar (src) secara dinamis sesuai foto yang dipilih pengguna.
+                        -->
                         <img class="photo-viewer-image" id="photoViewerImage" src="" alt="">
+                        
+                        <!-- Tombol Navigasi Geser ke Foto Berikutnya (Next) -->
                         <button type="button" class="photo-viewer-control" id="photoViewerNext" aria-label="Foto berikutnya">
+                            <!-- Ikon panah kanan menggunakan library FontAwesome -->
                             <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
                         </button>
+                        
                     </div>
+                    
+                    <!-- 
+                    KETERANGAN / CAPTION FOTO
+                    Atribut 'id="photoViewerCaption"' digunakan oleh JavaScript untuk menyuntikkan judul atau 
+                    deskripsi foto yang aktif. 'aria-live="polite"' membantu pembaca layar (screen reader) 
+                    bagi disabilitas netra untuk membacakan teks secara otomatis saat isi caption berubah.
+                    -->
                     <p class="photo-viewer-caption text-center small mt-3 mb-0" id="photoViewerCaption" aria-live="polite"></p>
+                    
                 </div>
             </div>
         </div>
@@ -722,40 +933,41 @@
 
     <!-- MANAJEMEN LOGIKA JAVASCRIPT (DOM, FETCH API, LIVE SEARCH) -->
     <script>
-        // 1. Inisialisasi awal animasi AOS saat web pertama kali dibuka
+        // 1. Menghidupkan animasi AOS saat halaman pertama kali dimuat
+        // durasi 800ms (0.8 detik), dan 'once: true' artinya animasi cuma jalan sekali aja pas di-scroll biar nggak berisik.
         AOS.init({
-            duration: 800, // Durasi animasi (0.8 detik)
-            once: true    // Animasi hanya berjalan 1 kali saat di-scroll
+            duration: 800, 
+            once: true     
         });
 
         // -------------------------------------------------------------
-        // BLOK 1: FETCH DATA DOKUMENTASI (data-dokumentasi.json)
+        // BLOK 1: MENGAMBIL DAN MENAMPILKAN DATA FOTO DOKUMENTASI
         // -------------------------------------------------------------
         document.addEventListener('DOMContentLoaded', () => {
-            let galleryPhotos = [];
-            let activeGalleryIndex = 0;
+            let galleryPhotos = []; // Menyimpan daftar foto galeri
+            let activeGalleryIndex = 0; // Menandai foto yang sedang aktif/dibuka
             const galleryViewerElement = document.getElementById('photoViewerModal');
             const galleryViewer = bootstrap.Modal.getOrCreateInstance(galleryViewerElement);
             const galleryViewerImage = document.getElementById('photoViewerImage');
             const galleryViewerCaption = document.getElementById('photoViewerCaption');
 
-            // Pengambilan data secara asinkronus menggunakan Fetch API
+            // Mengambil data foto secara asinkron dari file 'data-dokumentasi.json'
             fetch('data-dokumentasi.json')
                 .then(response => {
-                    // Validasi HTTP Status: Jika file tidak ditemukan (404/500), lempar error
+                    // Cek dulu, kalau file-nya nggak ketemu (misal error 404), kita lempar error
                     if (!response.ok) {
                         throw new Error(`Gagal memuat file JSON (Status: ${response.status})`);
                     }
-                    return response.json(); // Mengonversi file respon menjadi array JSON
+                    return response.json(); // Ubah datanya jadi format objek/array JSON
                 })
                 .then(data => {
                     galleryPhotos = data;
-                    renderDokumentasi(data); // Eksekusi fungsi pembentukan HTML
+                    renderDokumentasi(data); // Kalau sukses, jalankan fungsi buat nampilin fotonya ke layar
                 })
                 .catch(err => {
                     console.error('Error saat memuat data dokumentasi:', err);
 
-                    // Penanganan Error (Error Handling UI): Menampilkan alert di layar jika file gagal dimuat
+                    // Kalau gagal, tampilkan peringatan (alert) di layar supaya user tahu ada yang error
                     const container = document.getElementById('dokumentasiContainer');
                     if (container) {
                         container.innerHTML = `
@@ -769,20 +981,20 @@
                     }
                 });
 
-            // Fungsi untuk membuat elemen HTML foto dokumentasi
+            // Fungsi untuk merakit elemen HTML galeri foto berdasarkan data JSON
             function renderDokumentasi(data) {
                 const container = document.getElementById('dokumentasiContainer');
                 if (!container) return;
 
                 container.innerHTML = '';
 
-                // Validasi data kosong
+                // Kalau datanya kosong, tampilkan pesan kosong
                 if (!data || data.length === 0) {
                     container.innerHTML = `<div class="col-12 text-center text-muted py-4">Belum ada dokumentasi.</div>`;
                     return;
                 }
 
-                // Iterasi/Looping setiap data foto dari JSON
+                // Looping setiap foto yang ada di dalam data JSON
                 data.forEach((item, index) => {
                     const html = `
                         <div class="col-6 col-md-3">
@@ -791,10 +1003,11 @@
                             </button>
                         </div>
                     `;
-                    container.insertAdjacentHTML('beforeend', html); // Menyisipkan HTML ke DOM
+                    container.insertAdjacentHTML('beforeend', html); // Masukin hasil rakitan HTML ke dalam wadah (container) di halaman web
                 });
             }
 
+            // Fungsi untuk memperbarui gambar dan judul di dalam popup (modal) viewer foto
             function updateGalleryViewer() {
                 const photo = galleryPhotos[activeGalleryIndex];
                 if (!photo) return;
@@ -805,6 +1018,7 @@
                 galleryViewerCaption.textContent = caption;
             }
 
+            // Fungsi untuk geser foto sebelumnya atau selanjutnya di dalam modal
             function moveGalleryViewer(direction) {
                 if (!galleryPhotos.length) return;
 
@@ -812,6 +1026,7 @@
                 updateGalleryViewer();
             }
 
+            // Event listener pas foto di galeri diklik, langsung buka modal pop-up fotonya
             const galleryContainer = document.getElementById('dokumentasiContainer');
             galleryContainer.addEventListener('click', event => {
                 const trigger = event.target.closest('[data-gallery-index]');
@@ -822,6 +1037,7 @@
                 galleryViewer.show();
             });
 
+            // Tombol navigasi (Next/Previous) dan tombol keyboard (panah kiri/kanan) buat ganti foto
             document.getElementById('photoViewerPrevious').addEventListener('click', () => moveGalleryViewer(-1));
             document.getElementById('photoViewerNext').addEventListener('click', () => moveGalleryViewer(1));
             document.addEventListener('keydown', event => {
@@ -832,11 +1048,12 @@
         });
 
         // -------------------------------------------------------------
-        // BLOK 2: FETCH DATA ANGGOTA & INTERAKSI MODAL ANGGOTA
+        // BLOK 2: MENGAMBIL DATA ANGGOTA & MENANGANI KLIK MODALNYA
         // -------------------------------------------------------------
         document.addEventListener('DOMContentLoaded', () => {
-            let listAnggota = []; // Penampung lokal data anggota untuk fitur pencarian
+            let listAnggota = []; // Wadah sementara buat nyimpen data anggota
 
+            // Ambil data dari file 'data-anggota.json'
             fetch('data-anggota.json')
                 .then(response => {
                     if (!response.ok) {
@@ -846,7 +1063,7 @@
                 })
                 .then(data => {
                     listAnggota = data;
-                    renderAnggota(listAnggota);
+                    renderAnggota(listAnggota); // Kalau sukses, tampilkan kartu-kartu anggotanya
                 })
                 .catch(err => {
                     console.error('Error saat mengambil data anggota:', err);
@@ -863,7 +1080,7 @@
                     }
                 });
 
-            // Fungsi membuat kartu anggota
+            // Fungsi buat nampilin kartu profil setiap anggota
             function renderAnggota(data) {
                 const container = document.getElementById('anggotaContainer');
                 if (!container) return;
@@ -878,7 +1095,7 @@
                 data.forEach((item, index) => {
                     const delay = (index + 1) * 50;
                     
-                    // Kondisional Badge: Menampilkan badge "Ketua" jika properti 'peran' bernilai ada
+                    // Bikin badge khusus kalau anggota tersebut punya peran tertentu (misal: Ketua)
                     const badgeKetua = item.peran 
                         ? `<span class="badge bg-primary text-white ms-1">${item.peran}</span>` 
                         : '';
@@ -887,7 +1104,7 @@
                         <div class="col-6 col-md-4 col-lg-3 card-item" data-aos="fade-up" data-aos-delay="${delay}">
                             <div class="card card-custom h-100 p-3 text-center shadow-sm border btn-modal-trigger" 
                                 style="cursor: pointer;" 
-                                data-id="${item.id}"> <!-- Custom Attribute data-id untuk penanda ID anggota -->
+                                data-id="${item.id}"> <!-- ID unik buat ngenalin data anggota yang diklik -->
                                 <div class="card-body p-2">
                                     <img src="${item.foto}" class="rounded-circle img-thumbnail mb-3 mx-auto d-block" style="width: 100px; height: 100px; object-fit: cover;" alt="${item.nama}">
                                     <h5 class="card-title fw-bold text-slate-dark mb-1 fs-6">${item.nama}</h5>
@@ -905,16 +1122,15 @@
                 if (typeof AOS !== 'undefined') AOS.refresh();
             }
 
-            // Event Delegation: Menangkap event klik pada kartu anggota untuk memunculkan Modal
+            // Fitur Event Delegation: Nangkep klik pada kartu anggota untuk nampilin detail ke dalam modal pop-up
             const containerAnggota = document.getElementById('anggotaContainer');
             if (containerAnggota) {
                 containerAnggota.addEventListener('click', function (e) {
-                    // Cari elemen kartu terdekat yang diklik
                     const cardBtn = e.target.closest('.btn-modal-trigger');
                     if (!cardBtn) return;
 
                     const id = parseInt(cardBtn.dataset.id);
-                    // Cari data anggota spesifik berdasarkan ID
+                    // Cari data anggota yang ID-nya cocok sama yang diklik
                     const anggota = listAnggota.find(item => item.id === id);
 
                     if (anggota) {
@@ -922,7 +1138,7 @@
                             ? `<span class="badge bg-primary text-white ms-2 px-3 py-2 rounded-pill">${anggota.peran}</span>` 
                             : '';
 
-                        // Isi elemen modal dengan data dari array
+                        // Masukin data anggota ke elemen-elemen modal
                         document.getElementById('modalFoto').src = anggota.foto;
                         document.getElementById('modalNama').textContent = anggota.nama;
                         document.getElementById('modalNimContainer').innerHTML = `
@@ -931,7 +1147,7 @@
                         `;
                         document.getElementById('modalQuote').textContent = `"${anggota.quote}"`;
 
-                        // Panggil instance Bootstrap Modal untuk menampilkan pop-up
+                        // Tampilkan modal pop-up Bootstrap
                         const modalElement = document.getElementById('modalAnggota');
                         const bsModal = new bootstrap.Modal(modalElement);
                         bsModal.show();
@@ -941,11 +1157,12 @@
         });
 
         // -------------------------------------------------------------
-        // BLOK 3: FETCH DATA KAKAK ASUH & INTERAKSI MODAL KAKAK ASUH
+        // BLOK 3: MENGAMBIL DATA KAKAK ASUH & INTERAKSI MODALNYA
         // -------------------------------------------------------------
         document.addEventListener('DOMContentLoaded', () => {
             let listKakakAsuh = [];
 
+            // Ambil data dari file 'data-kakak-asuh.json'
             fetch('data-kakak-asuh.json')
                 .then(response => {
                     if (!response.ok) {
@@ -965,6 +1182,7 @@
                     }
                 });
 
+            // Fungsi buat nampilin kartu Kakak Asuh ke layar
             function renderKakakAsuh(data) {
                 const container = document.getElementById('kakakAsuhContainer');
                 if (!container) return;
@@ -998,7 +1216,7 @@
                 if (typeof AOS !== 'undefined') AOS.refresh();
             }
 
-            // Event Delegation untuk modal Kakak Asuh
+            // Event delegation buat nangkep klik pada kartu Kakak Asuh dan buka modalnya
             const containerKakak = document.getElementById('kakakAsuhContainer');
             if (containerKakak) {
                 containerKakak.addEventListener('click', function (e) {
@@ -1023,7 +1241,7 @@
             }
         });
 
-        // Helper Function: Mengonversi karakter sensitif menjadi entitas HTML aman (Mencegah XSS Attack)
+        // Fungsi Pembantu (Helper): Mencegah serangan XSS dengan mengamankan karakter khusus HTML
         function escapeHtml(text) {
             const map = {
                 '&': '&amp;',

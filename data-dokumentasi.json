@@ -23,5 +23,15 @@
     "id": 5,
     "judul": "Dokumentasi 5",
     "foto": "image/fotbar5.jpeg"
+  },
+  {
+    "id" : 6,
+    "judul" : "Dokumentasi 6",
+    "foto" : "image/fotbar6.jpeg"
+  },
+  {
+    "id" : 7,
+    "judul" : "Dokumentasi 7",
+    "foto" : "image/fotbar7.jpeg"
   }
 ]
