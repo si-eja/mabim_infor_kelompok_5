@@ -573,17 +573,24 @@
             <div id="mabimCarousel" class="carousel slide shadow-sm rounded-4 overflow-hidden" data-bs-ride="carousel">
                 
                 <!-- Indikator Navigasi Titik di Bawah Carousel -->
+                <!-- Bagian ini berfungsi untuk menampilkan titik-titik kecil di bawah slider sebagai petunjuk slide yang sedang aktif -->
                 <div class="carousel-indicators">
+                    <!-- Tombol titik untuk Slide 1 (diberi kelas active karena berada di urutan pertama) -->
                     <button type="button" data-bs-target="#mabimCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <!-- Tombol titik untuk Slide 2 -->
                     <button type="button" data-bs-target="#mabimCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <!-- Tombol titik untuk Slide 3 -->
                     <button type="button" data-bs-target="#mabimCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
 
                 <!-- Daftar Item/Slide Gambar -->
+                <!-- Rumah utama untuk menampung seluruh lembar foto dan teks keterangannya -->
                 <div class="carousel-inner">
-                    <!-- Slide Pertama (Aktif saat halaman dimuat) -->
+                    <!-- Slide Pertama (Aktif saat halaman dimuat pertama kali) -->
                     <div class="carousel-item active">
+                        <!-- Menampilkan file gambar dari folder lokal -->
                         <img src="image/fotbar4.jpeg" class="d-block w-100" alt="Kegiatan Mabim 1">
+                        <!-- Kotak teks keterangan yang disembunyikan di HP kecil (d-none) dan dimunculkan di layar medium ke atas (d-md-block) -->
                         <div class="carousel-caption d-none d-md-block">
                             <h5 class="fw-bold text-white fs-4">Mentoring</h5>
                             <p class="mb-0 text-white-50">Sesi perkenalan dan bimbingan bersama Kakak Asuh pendamping kelompok.</p>
@@ -610,10 +617,12 @@
                 </div>
 
                 <!-- Tombol Navigasi Panah Kiri & Kanan Slider -->
+                <!-- Tombol panah di sisi kiri untuk memindahkan slide ke urutan sebelumnya -->
                 <button class="carousel-control-prev" type="button" data-bs-target="#mabimCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
+                <!-- Tombol panah di sisi kanan untuk memindahkan slide ke urutan berikutnya -->
                 <button class="carousel-control-next" type="button" data-bs-target="#mabimCarousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
